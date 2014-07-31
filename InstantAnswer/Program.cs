@@ -11,13 +11,9 @@ namespace InstantAnswer
 
             while (askAgain)
             {
-                // Ask until they enter something
-                string queryInput;
-                do
-                {
-                    Console.Out.Write("What is: ");
-                    queryInput = Console.In.ReadLine();
-                } while (String.IsNullOrEmpty(queryInput));
+                Console.Out.Write("What is: ");
+                string queryInput = Console.In.ReadLine();
+
 
                 // This is the API we're trying to call into. The base URL is "https://api.duckduckgo.com/". The request parameters are "q" and "format".
                 // https://api.duckduckgo.com/?q=Google,%20Inc.&format=xml
@@ -49,15 +45,10 @@ namespace InstantAnswer
 
                 Console.WriteLine();
 
-                // Ask until they enter either "Y" or "N"
-                string askAnotherInput;
-                do
-                {
-                    Console.Write("Ask me another (Y/N)?");
-                    askAnotherInput = (Console.In.ReadLine() ?? "").ToUpper().Trim();
-                    askAgain = askAnotherInput == "Y";
-                    Console.WriteLine();
-                } while (askAnotherInput != "Y" && askAnotherInput != "N");
+                Console.Write("Ask me another (Y/N)?");
+                string askAnotherInput = (Console.In.ReadLine() ?? "").ToUpper().Trim();
+                askAgain = askAnotherInput == "Y";
+                Console.WriteLine();
             }
         }
     }
