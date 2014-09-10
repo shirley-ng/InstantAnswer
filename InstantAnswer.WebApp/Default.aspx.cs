@@ -12,6 +12,11 @@ namespace InstantAnswer.WebApp
 
         protected void queryButton_Click(object sender, EventArgs e)
         {
+            if (queryTextBox.Text.Trim() == String.Empty)
+            {
+                return;
+            }
+
             var queryService = new QueryService();
             DuckDuckGoResponse duckDuckGoResponse = queryService.Query(queryTextBox.Text);
 
